@@ -1,0 +1,130 @@
+.ghost {
+  font-size:500px;
+  color:white;
+  position: fixed;
+  z-index: 10;
+  visibility: hidden;
+}
+
+body {
+background-color: black;
+}
+
+.code_snippet {
+   background-color: light-grey;
+   display: block;
+   height: auto;
+   width: 100%;
+ }
+
+button {
+  background-color: red;
+  font-family: Droid Serif;
+  font-size: 30px;
+  color:white;
+  border-radius:10px;
+  padding: 10px;
+  border:0;
+  outline: 0;
+ }
+
+p {
+  color: white;
+  font-size: 20px;
+  font-family: Droid Serif;
+}
+
+h2 {
+  color: orange;
+  font-family: Droid Serif;
+  font-size: 30px;
+}
+
+h1 {
+  color: orange;
+  font-family: Droid Serif;
+  font-size: 75px;
+  position: relative;
+  z-index: 5;
+  left: 24%;
+  margin: 10px;
+}
+
+.presents {
+    left: 24%;
+    position: relative;
+    padding-top:10px;
+  }
+
+img.presents {
+  height: 50px;
+  left: 0px;
+}
+
+.inner {
+    width: 50%;
+    margin: 0 auto;
+}
+
+/*.text-glow:hover, .text-glow:focus, .text-glow:active {*/
+   /*-webkit-stroke-width: 5.3px;*/
+   /*-webkit-stroke-color: #FFFFFF;*/
+   /*-webkit-fill-color: #FFFFFF;*/
+   /*text-shadow: 1px 0px 20px yellow;*/
+   /*-webkit-transition: width 5s; [>Safari & Chrome<]*/
+   /*transition: width 5s;*/
+   /*-moz-transition: width 5s; [> Firefox 4 <]*/
+   /*-o-transition: width 5s; [> Opera <]*/
+   /*transition-duration: 5s;*/
+   /*}*/
+
+.text-glow {
+  text-shadow: 1px 1px 15px white;
+}
+
+
+/*the moon*/
+
+
+
+body:before {
+  content:'';
+  display:block;
+  height:200px;
+  width:200px;
+  border-radius:100%;
+  background :#ddd;
+  margin:auto;
+  box-shadow:0 0 50px gold,0 0 150px gold, inset 0 20px 20px 40px whitesmoke, inset 30px 0 35px 50px ivory;
+  transition:2s;
+  position:absolute;
+  top:150;
+  left:150;
+  margin-left:-100px;
+  margin-top:-100px;
+  z-index: 1;
+}
+body:hover:before {
+box-shadow:0 0 50px tomato,0 0 30px orange, inset 0 10px 10px 20px #ddd, inset 30px 0 35px 50px #ccc;
+  background:#aaa;
+  transition:1s;
+}
+html , body {
+background:#159;
+background-image:
+linear-gradient(-40deg,#222,transparent,#111), 
+linear-gradient(40deg,#222,transparent,#111), 
+linear-gradient(-40deg,#222,transparent,#111),
+linear-gradient(40deg,#222,transparent,#111)
+;
+  background-size:300%;
+  background-position:center;
+  transition:1s;
+}
+html:hover,body:hover {background-color:#123;transition:1s;}
+
+footer {
+  height: 50px;
+  width: 100%;
+  position: relative;
+}
