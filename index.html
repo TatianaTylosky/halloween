@@ -1,9 +1,17 @@
+<!--{% extends '/learn/static/templates/learn_base.html' %}-->
+
+<!--{% block html_tag %}-->
+
+<!DOCTYPE html>
 <html>
+<!--{% endblock %}-->
+
+<!--{% block head %}-->
 
 <head>
 
 		<link rel="stylesheet" type="text/css" href="main.css">
-    <link rel="stylesheet" type="text/css" href="highlight.css"> <!--makes the code format with colors-->
+    <link rel="stylesheet" type="text/css" href="highlight.css"> <!--makes the code format prettifully with colors-->
     <link href='http://fonts.googleapis.com/css?family=Droid+Serif' rel='stylesheet' type='text/css'>
 
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
@@ -12,72 +20,101 @@
 
 </head>
 
-<body>
-<div class=ghost><img src="ghost_pic.png" alt="A picture of a scary ghost!"></div>
-  <div class="presents">
-    <img class="presents" src="white_logo.png" alt="Thinkful">
-  </div>
-  <h1>Ghost in the Machine</h1>
-  <div class="inner">
-    <p>Make your website haunted for halloween! Scare your friends with a simple javascript function and a bit of CSS black magic.</p>
+<!--{% endblock %}-->
+<!--{% block page_body %}-->
 
-    <center><button id="button"> Scare me! </button></center>
+<body>
+  <div class="moon"></div>
+  <header></header>
+  <div class="ghost_container">
+    <img class="ghost" src="ghost_pic.png" alt="A picture of a scary ghost!">
+  </div>
+
+  <div class="inner">
+    <div class="title">
+      <a target="_blank" href="/a/learn?utm_source=tf_halloween_ghost_guide&utm_medium=tf_logo_start&utm_campaign=tf_guides">
+        <img class="logo" src="white_logo.png" alt="Thinkful">
+      </a>
+      <h1>Ghost in the Machine</h1>
+        <p>Make your website haunted for halloween! Scare your friends with a simple javascript function and a bit of CSS black magic.</p>
+        <button id="ghostbutton">Scare Me!</button>
+        <h3>CAUTION: LOUD AUDIO!</h3>
+
+
+    </div>
 
     <h2>Step 1: Your webpage</h2>
 
     <p>Choose which webpage you want to haunt! All you will need to do is drop the following code into your html file.</p>
+
     <code class="language-markup code_snippet">
-      &lt;div class=ghost&gt;BOO!&lt;/div&gt;
+      &lt;div class="ghost_container"&gt;
+        &lt;img class=ghost src="ghost_pic.png" alt="A picture of a scary ghost!"&gt;
+      &lt;/div&gt;
     </code>
 
-    <p>This is the haunting text that will appear when your ghost reveals itself. OPTIONAL: Add a super scary picture of your choosing to add all the more fright and terror!</p>
+    <p>This is the haunting image that will appear when your ghost reveals itself. Add a picture of your choosing or you can download <a href="ghost_pic.png" download>our cute ghost, Booful.</a></p>
 
     <h2>Step 2: Your CSS Stylesheet</h2>
 
     <p>Now is time to get your ghost in the spirit of haunting. We are going to change the initial display of your ghost to hidden so that it can pop out and surprise your site's visitor.</p>
+
     <code class="language-css code_snippet">
+      .ghost_container {
+        width:100%;
+        position:absolute;
+        text-align: center;
+        visibility: hidden;
+      }
+
       .ghost {
-      font-size:500px;
-      color:white;
-      position: fixed;
-      z-index: 10;
-      display: none;
+        z-index: 10;
+        display: block;
+        width: 550px;
+        position: relative;
+        margin-left: auto;
+        margin-right: auto;
       }
     </code>
 
     <h2>Step 3: Your Javascript file</h2>
 
-     <p>This Javascript file will bring our ghost to life with sound and sight! The following code sets a timer for 10 seconds that will trigger the appearance of your ghost and the ear piercing scream!</p>
-     <code class="language-javascript code_snippet">
-        setTimeout(function () {
-          var ghost = document.getElementsByClassName("ghost")[0];
-          var snd = new Audio("file.wav");
-          snd.play();
-          ghost.style.visibility = "visible";
-        }, 3000);
+    <p>This Javascript file will bring our ghost to life with sound and sight! The following code sets a timer for 5 seconds using <a href="http://www.w3schools.com/jsref/met_win_settimeout.asp">setTimeout</a> that will trigger the appearance of your ghost and the ear piercing scream when the visitor goes to your site! <a href="file.wav" download>Download our ear piecing scream</a> or use your own sound!</p>
 
-        setTimeout(function () {
-          var ghost = document.getElementsByClassName("ghost")[0];
-          ghost.style.visibility = "hidden";
-        }, 5000);
+     <code class="language-javascript code_snippet">
+    var ghost = document.getElementsByClassName("ghost_container")[0];
+    var sound = new Audio("file.wav");
+
+    //Shows ghost and plays sound after one second
+    setTimeout(function () {
+      sound.play();
+      ghost.style.visibility = "visible";
+      console.log('show');
+    }, 5000);
+
+    //Hides ghost one second after appears
+    setTimeout(function () {
+      ghost.style.visibility = "hidden";
+      console.log('hide');
+    }, 6000);
      </code>
 
-     <p>This way the ghost will make an appearance 10 seconds after your user loads the page and then quickly dissapear again into the shadows.</p>
+     <p>This way the ghost will make an appearance 5 seconds after your user loads the page and then quickly disappear again into the shadows.</p>
 
-      <p>Not scary enough? Try randomizing your javascript timer for even more suspense!</p>
+     <p>Not scary enough? Try <a href="http://www.w3schools.com/jsref/jsref_random.asp">randomizing</a> your javascript timer for even more suspense!</p>
 
-      <h2>Step 4: Final steps</h2>
+     <h2>Step 4: Final steps</h2>
 
-      <p>Make sure you are linking both your CSS and javascript files to your html page in the header!</p>
+     <p>Make sure you are linking both your CSS and javascript files to your html page in the header!</p>
 
-      <code class="language-markup code_snippet">
+     <code class="language-markup code_snippet">
          &lt;head&gt;
 	  	     &lt;link rel="stylesheet" type="text/css" href="main.css"&gt;
-	  	     &lt;script src="main.js"v&gt;&lt;/script&gt;
+	  	     &lt;script src="main.js"&gt;&lt;/script&gt;
          &lt;/head&gt;
-         </code>
+     </code>
 
-  <p>Now go ahead and test out your ghost a few times before you share your goul with a friend!</p>
+     <p>Happy Haunting!</p>
 
   <h2>Extra Scary!</h2>
   <p>Give your text an <span class="text-glow">eerie glow</span> by applying some CSS to your font!</p>
@@ -88,6 +125,17 @@
    </code>
   </div>
   <footer>
+    <!-- Begin Campaign Monitor Signup Form -->
+                    <div id="cm_embed_signup" class="tf-cm-signup">
+                      <h3 class="sub-headline">Get notified when new guides are released</h3>
+                        <form action="http://thinkful.createsend.com/t/d/s/jydle/" method="post" name="cm-embedded-subscribe-form" class="cm-embedded-subscribe-form validate" target="_blank" novalidate="">
+                            <input type="email" name="cm-jydle-jydle" id="fieldEmail" placeholder="Enter your email address">
+                            <button name="subscribe" id="cm-embedded-subscribe"> Subscribe</button>
+                            <p><input id="fieldwilkt" name="cm-f-wilkt" type="hidden" value="angularjs-tutorial-build-a-gmail-clone" /></p>
+                        </form>
+                    </div>
+                    <!--End cm_embed_signup-->
   </footer>
   </body>
 </html>
+<!--{% endblock %}-->

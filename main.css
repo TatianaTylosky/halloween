@@ -1,13 +1,37 @@
-.ghost {
-  font-size:500px;
-  color:white;
+header {
+  height: 100px;
+  width: 100%;
+  position: relative;
+}
+
+
+.title {
+  margin-bottom:75px;
+}
+
+.ghost_container {
+  width: 800px;
   position: fixed;
-  z-index: 10;
+  text-align: center;
   visibility: hidden;
 }
 
+.ghost {
+  z-index: 10;
+  display: block;
+  width: 550px;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.logo {
+  width:300px;
+}
+
 body {
-background-color: black;
+  max-width:800px;
+  margin:auto;
 }
 
 .code_snippet {
@@ -18,21 +42,41 @@ background-color: black;
  }
 
 button {
-  background-color: red;
+  background-color: #9F000F;
   font-family: Droid Serif;
-  font-size: 30px;
+  font-size: 25px;
   color:white;
-  border-radius:10px;
+  border-radius:5px;
   padding: 10px;
   border:0;
   outline: 0;
+  margin: 0 auto;
  }
+
+button:hover {
+  cursor: pointer;
+  background-color:#C11B17
+}
+
+button:active {
+  background-color:#8C001A
+}
 
 p {
   color: white;
   font-size: 20px;
   font-family: Droid Serif;
+  line-height: 1.5;
+  text-align: left;
 }
+
+h3 {
+  color: white;
+  font-size: 20px;
+  font-family: Droid Serif;
+  line-height: 1.5;
+}
+
 
 h2 {
   color: orange;
@@ -46,12 +90,10 @@ h1 {
   font-size: 75px;
   position: relative;
   z-index: 5;
-  left: 24%;
-  margin: 10px;
+  margin: 0;
 }
 
 .presents {
-    left: 24%;
     position: relative;
     padding-top:10px;
   }
@@ -62,21 +104,20 @@ img.presents {
 }
 
 .inner {
-    width: 50%;
-    margin: 0 auto;
+    width: 100%;
+    margin: 10px;
+    text-align: center;
+    opacity: 1;
+    transition: opacity 1.3s linear;
 }
 
-/*.text-glow:hover, .text-glow:focus, .text-glow:active {*/
-   /*-webkit-stroke-width: 5.3px;*/
-   /*-webkit-stroke-color: #FFFFFF;*/
-   /*-webkit-fill-color: #FFFFFF;*/
-   /*text-shadow: 1px 0px 20px yellow;*/
-   /*-webkit-transition: width 5s; [>Safari & Chrome<]*/
-   /*transition: width 5s;*/
-   /*-moz-transition: width 5s; [> Firefox 4 <]*/
-   /*-o-transition: width 5s; [> Opera <]*/
-   /*transition-duration: 5s;*/
-   /*}*/
+.inner.faded {
+    opacity: 0;
+}
+
+a {
+  color: orange;
+}
 
 .text-glow {
   text-shadow: 1px 1px 15px white;
@@ -85,35 +126,30 @@ img.presents {
 
 /*the moon*/
 
-
-
-body:before {
-  content:'';
+.moon {
   display:block;
+  position: absolute;
+  left: 2em;
+  top: 2em;
   height:200px;
   width:200px;
   border-radius:100%;
   background :#ddd;
-  margin:auto;
   box-shadow:0 0 50px gold,0 0 150px gold, inset 0 20px 20px 40px whitesmoke, inset 30px 0 35px 50px ivory;
   transition:2s;
-  position:absolute;
-  top:150;
-  left:150;
-  margin-left:-100px;
-  margin-top:-100px;
-  z-index: 1;
+  z-index: 10;
 }
+
 body:hover:before {
 box-shadow:0 0 50px tomato,0 0 30px orange, inset 0 10px 10px 20px #ddd, inset 30px 0 35px 50px #ccc;
   background:#aaa;
   transition:1s;
 }
-html , body {
+html , document {
 background:#159;
 background-image:
-linear-gradient(-40deg,#222,transparent,#111), 
-linear-gradient(40deg,#222,transparent,#111), 
+linear-gradient(-40deg,#222,transparent,#111),
+linear-gradient(40deg,#222,transparent,#111),
 linear-gradient(-40deg,#222,transparent,#111),
 linear-gradient(40deg,#222,transparent,#111)
 ;
@@ -121,10 +157,38 @@ linear-gradient(40deg,#222,transparent,#111)
   background-position:center;
   transition:1s;
 }
-html:hover,body:hover {background-color:#123;transition:1s;}
+html:hover,document:hover {background-color:#123;transition:1s;}
 
 footer {
-  height: 50px;
+  height: 100px;
   width: 100%;
   position: relative;
+  width: 100%;
+  margin: 10px;
+  text-align: center;
+
+}
+
+input {
+    border: 5px solid grey; 
+    padding: 15px;
+    background: white;
+    margin-bottom: 20px;
+    margin-top: 10px;
+    margin-right: 20px;
+    margin-left: 20px;
+    width: 200px;
+    font:black;
+    font-size:15px;
+}
+
+.block {
+  width:100px;
+  height:100px;
+  display:inline;
+}
+
+
+.cm-embedded-subscribe {
+  font-size:20px;
 }
